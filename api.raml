@@ -1,0 +1,17 @@
+#%RAML 1.0
+title: UnifiedPos Fiscal API
+version: v2
+baseUri: https://example.com/api/{version}
+securitySchemes:
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
+schemas:
+  fiscal_capabilities_json: !include schemas/fiscal-capabilities-schema.json
+  fiscal_capabilities_xml: !include schemas/fiscal-capabilities-schema.xsd
+
+/fiscals:
+  get:
+    description: |
+      Get a list of fiscal devices exposed via API.
+    responses:
+      200:
+        body:
