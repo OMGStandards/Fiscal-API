@@ -1,0 +1,16 @@
+#%RAML 1.0 Library
+usage: |
+  Defines capabilities of Fiscal device.
+uses:
+  commonCapabilities: common-capabilities-type.raml
+  
+types:
+  FiscalCapabilities:
+    description: |
+      Capabilities of the Fiscal device category.
+    properties:
+      commonCapabilities:
+        description: |
+          Common capabilities for all device categories.
+        type: commonCapabilities.CommonCapabilities
+        required: true
