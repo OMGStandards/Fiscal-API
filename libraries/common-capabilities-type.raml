@@ -1,0 +1,50 @@
+#%RAML 1.0 Library
+usage: |
+  Defines capabilities shared by all UPOS devices.
+types:
+  PowerReportingEnum:
+    description: |
+      Enumeration of power reporting capabilities.
+      None - No power reportint is possible.
+      Standard - Two power states Online and Offline can be reported.
+      Advanced - Three power states Online, Offline and Off can be reported.
+        Online -  The device is powered on and ready for use.
+        Off - The device is powered off or detached.
+        Offline - The device is powered on but is either not ready.
+    type: string
+    enum: ["None", "Standard", "Advanced"]
+
+  CommonCapabilities:
+    description: |
+      Capabilities common for all categories of UPOS Devices.
+    properties:
+      compareFirmwareVersion:
+        description: |
+          Indicates whether firmware versions can be compared.
+          Firmware file’s version is compared against the firmware version
+          of the device.
+        type: boolean
+        required: true
+      powerReporting:
+        description: |
+          Indicates the power reporting capabilities of the Device.
+          It has one of the following: None, Standard, Advanced.
+        type: PowerReportingEnum
+        required: true
+      statisticsReporting:
+        description: |
+          Indicates the statistics reporting capabilities of the Device.
+          It shows whether the Device can accumulate and provide various
+          statistics regarding its usage.
+        type: boolean
+        required: true
+      updateFirmware:
+        description: |
+          Indicates whether the Device supports updating firmware.
+        type: boolean
+        required: true
+      updateStatistics:
+        description: |
+          Indicates whether statistics can be reset or updated.
+        type: boolean
+        required: true
